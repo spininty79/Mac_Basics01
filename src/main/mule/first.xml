@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="d2454ee1-f78a-4236-8981-5decb5485249" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="firstFlow" doc:id="cb8bd5e6-3e2a-4525-96ec-1286697c6896" >
+		<http:listener doc:name="Listener" doc:id="6f2d50db-586a-4b37-8d44-f1c97e9535d6" config-ref="HTTP_Listener_config" path="first"/>
+		<set-payload value="#['This is my First API' ++ ' created by ' ++ attributes.queryParams.uname as String]" doc:name="Set Payload" doc:id="b6320ced-cbd6-4890-8207-2342b4435f8b" />
+	</flow>
+</mule>
