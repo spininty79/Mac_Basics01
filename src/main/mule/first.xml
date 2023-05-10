@@ -12,6 +12,9 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<set-payload value="#['This is my First API' ++ ' created by ' ++ attributes.queryParams.uname as String]" doc:name="Set Payload" doc:id="b6320ced-cbd6-4890-8207-2342b4435f8b" />
 		<flow-ref doc:name="Flow Reference" doc:id="4ae68df6-0a31-4eac-a66b-5b12fa2ab299" name="Subflow-1"/>
 	</flow>
+	<sub-flow name="subflow-2" doc:id="61404f1b-f4da-472a-ace1-e7907ca405eb" >
+		<set-payload value="second Subflow" doc:name="Set Payload" doc:id="672d9aad-3840-4137-b9a2-16a824d5cca7" />
+	</sub-flow>
 	<sub-flow name="Subflow-1" doc:id="2a7bee9b-3966-44fc-8326-2dabcd7a369d" >
 		<set-payload value="First Subflow" doc:name="Set Payload" doc:id="9cc350ab-bd1d-4bb4-a382-a16701c5e388" />
 	</sub-flow>
