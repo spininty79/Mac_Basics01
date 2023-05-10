@@ -10,5 +10,9 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="firstFlow" doc:id="cb8bd5e6-3e2a-4525-96ec-1286697c6896" >
 		<http:listener doc:name="Listener" doc:id="6f2d50db-586a-4b37-8d44-f1c97e9535d6" config-ref="HTTP_Listener_config" path="first"/>
 		<set-payload value="#['This is my First API' ++ ' created by ' ++ attributes.queryParams.uname as String]" doc:name="Set Payload" doc:id="b6320ced-cbd6-4890-8207-2342b4435f8b" />
+		<flow-ref doc:name="Flow Reference" doc:id="4ae68df6-0a31-4eac-a66b-5b12fa2ab299" name="firstSub_Flow"/>
 	</flow>
+	<sub-flow name="firstSub_Flow" doc:id="2a7bee9b-3966-44fc-8326-2dabcd7a369d" >
+		<set-payload value="Test Subflow" doc:name="Set Payload" doc:id="9cc350ab-bd1d-4bb4-a382-a16701c5e388" />
+	</sub-flow>
 </mule>
